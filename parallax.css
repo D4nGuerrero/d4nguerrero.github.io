@@ -1,0 +1,132 @@
+/*
+ * LayerParallax — PURE CSS version
+ *
+ * Uses CSS Scroll-Driven Animations (animation-timeline: scroll()).
+ * Browser support: Chrome 115+, Edge 115+, Firefox 132+, Safari 18+.
+ *
+ * ─── Why parallax doesn't work on mobile ─────────────────────────────────
+ *
+ *  Two reasons:
+ *
+ *  1. CSS Scroll-Driven Animations require scroll events to fire synchronously
+ *     on the main thread. Mobile browsers (iOS Safari, Chrome Android) handle
+ *     scroll off the main thread for performance — so the animation-timeline
+ *     driver is either frozen, jerky, or completely non-functional.
+ *
+ *  2. position:fixed elements behave differently inside scrolling containers
+ *     on iOS — a long-standing quirk that breaks the "fixed + scroll-linked"
+ *     pattern that parallax relies on.
+ *
+ *  The solution used here:
+ *  • ≤768px → animations are disabled; layers freeze at their start position.
+ *  • The sky background-color on the scene gives a coherent static look.
+ *  • styles.css adds a mobile gradient and keeps the hero title visible.
+ *  • This is the industry-standard approach (it's what major sites do).
+ *
+ * ─── How it works (desktop) ──────────────────────────────────────────────
+ *
+ *  1. Every layer is position:fixed, pinned to the viewport at rest.
+ *  2. Each layer runs a @keyframes animation tied to root scroll progress.
+ *     scroll 0%   = page top    → translateY(0)
+ *     scroll 100% = page bottom → translateY(--parallax-to)
+ *  3. --parallax-to = -(max-scroll × speed / 100)
+ *     Set --parallax-max-scroll on :root (JS snippet in index.html does this).
+ *  4. An optional scrim layer fades in via the same mechanism.
+ *
+ * ─── Quick-start ─────────────────────────────────────────────────────────
+ *
+ *    <div class="parallax-scene">
+ *      <div class="parallax-layer" style="--speed:2; background-image:url('sky.png'); background-color:#ffaf1b;"></div>
+ *      <div class="parallax-layer" style="--speed:5;  background-image:url('layer1.png');"></div>
+ *      <div class="parallax-scrim" style="background-color:#000; --scrim-start:8%; --scrim-end:30%; --scrim-max-opacity:0.72;"></div>
+ *    </div>
+ */
+
+
+/* ─── Global config ───────────────────────────────────────────────── */
+:root {
+  --parallax-max-scroll: 4000px;
+}
+
+
+/* ─── Scene container ────────────────────────────────────────────── */
+.parallax-scene {
+  position: relative;
+  height: 100svh;
+  z-index: 10;
+}
+
+
+/* ─── Shared keyframes ───────────────────────────────────────────── */
+@keyframes parallax-scroll {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(calc(var(--speed, 0) * -0.01 * var(--parallax-max-scroll))); }
+}
+
+
+/* ─── Layer base styles ──────────────────────────────────────────── */
+.parallax-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100svh;
+
+  background-position: bottom center;
+  background-repeat:   repeat-x;
+  background-size:     auto 100svh;
+
+  animation-name:            parallax-scroll;
+  animation-duration:        1ms;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root block);
+
+  will-change: transform;
+}
+
+
+/* ─── Scrim ──────────────────────────────────────────────────────── */
+@keyframes parallax-scrim-fade {
+  from { opacity: 0; }
+  to   { opacity: var(--scrim-max-opacity, 0.85); }
+}
+
+.parallax-scrim {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100svh;
+  pointer-events: none;
+  opacity: 0;
+
+  animation-name:            parallax-scrim-fade;
+  animation-duration:        1ms;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root block);
+  animation-range:           entry var(--scrim-start, 8%) exit var(--scrim-end, 35%);
+}
+
+
+/* ─── Fallback (no scroll-driven animation support) ──────────────── */
+.parallax-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat:   no-repeat;
+  background-size:     auto 100%;
+}
+
+@supports not (animation-timeline: scroll()) {
+  .parallax-layer,
+  .parallax-scrim {
+    animation: none;
+  }
+  .parallax-fallback {
+    display: block;
+  }
+}
+
+
+

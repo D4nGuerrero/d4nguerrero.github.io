@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DannyG.dev</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="parallax.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="scripts.js"></script>
+  </head>
+  <body>
+    <!-- ── Nav ── -->
+    <nav>
+      <a class="nav-logo" href="#">DG</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── Scroll cue ── -->
+    <div class="scroll-cue">
+      <span>Scroll</span>
+      <div class="scroll-cue-line"></div>
+    </div>
+
+    <!-- ═══════════════════════════════
+       PARALLAX SCENE
+  ═══════════════════════════════ -->
+    <div class="parallax-scene">
+      <div
+        class="parallax-layer layer-sky"
+        style="
+          --speed: 2;
+          background-image: url(&quot;images/parallax0.png&quot;);
+          background-color: #ffaf1b;
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 5;
+          background-image: url(&quot;images/parallax1.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 11;
+          background-image: url(&quot;images/parallax2.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 16;
+          background-image: url(&quot;images/parallax3.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 26;
+          background-image: url(&quot;images/parallax4.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 36;
+          background-image: url(&quot;images/parallax5.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 49;
+          background-image: url(&quot;images/parallax6.png&quot;);
+        "
+      ></div>
+
+      <div
+        class="parallax-scrim"
+        style="
+          background-color: #000;
+          --scrim-start: 8%;
+          --scrim-end: 30%;
+          --scrim-max-opacity: 0.72;
+        "
+      ></div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 69;
+          background-image: url(&quot;images/parallax7.png&quot;);
+        "
+      ></div>
+
+      <!-- ── Floating hero title ── -->
+      <div class="hero-title-wrap">
+        <div class="hero-domain">dannyg.dev</div>
+        <!-- HERO TAGLINE -->
+        <div class="hero-tagline">Full-Stack Developer</div>
+      </div>
+
+      <div
+        class="parallax-layer"
+        style="
+          --speed: 95;
+          background-image: url(&quot;images/parallax8.png&quot;);
+          z-index: 16;
+        "
+      ></div>
+    </div>
+
+    <!-- ═══════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════ -->
+    <div id="main">
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-label">01 — About</div>
+
+        <div class="h2-with-img reveal">
+          <h2>
+            Building things<br />
+            <em
+              style="
+                font-family: var(--font-serif);
+                font-size: 0.85em;
+                font-style: italic;
+              "
+            >
+              that matter.
+            </em>
+          </h2>
+          <img class="heading-inline-img" src="images/a2.png" alt="a2" />
+        </div>
+
+        <div class="about-grid">
+          <div class="about-bio reveal">
+            <p>
+              👋 Hi. I'm <strong>Danny Guerrero</strong> — a software developer
+              from South Texas. I've been obsessed with programming ever since I
+              learned I could edit an .html file as a kid.
+            </p>
+
+            <p>
+              Most of my work lives in the world of
+              <strong>JavaScript</strong>, with <strong>React</strong> being my
+              main tool for building UIs. I also work across backend systems,
+              APIs, and databases to make everything come together behind the
+              scenes.
+            </p>
+
+            <p>
+              I enjoy creating things that are both useful and visually
+              interesting — whether that's a polished brochure website for a
+              local business, a React Native app, a game plugin, or some weird
+              experimental side project at 2AM because my brain said
+              <em>"what if?"</em> 😅
+            </p>
+
+            <p>
+              Currently focused on freelance web development, improving my
+              craft, and building tools that help real people.
+            </p>
+          </div>
+
+          <div class="about-stats reveal">
+            <img src="images/a2.png" />
+
+            <div class="stat">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Years coding</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Sites & projects</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Tabs left open</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Learning mode</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- WORK -->
+      <section id="work">
+        <div class="work-header">
+          <div>
+            <div class="section-label">02 — Work</div>
+            <h2 class="reveal">Projects</h2>
+          </div>
+
+          <a
+            href="https://github.com/D4nGuerrero?tab=repositories"
+            target="_blank"
+            >View all →</a
+          >
+        </div>
+
+        <!-- Main project grid (unchanged) -->
+        <div class="projects reveal">
+          <!-- 01 MLB Stat Underground -->
+          <a
+            class="project"
+            href="https://github.com/D4nGuerrero/mlb-stat-underground"
+            target="_blank"
+          >
+            <span class="project-num">01</span>
+            <div class="project-info">
+              <div class="project-title">MLB Stat Underground</div>
+              <div class="project-desc">
+                MLB app with multiple stat-related features and tools.
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">MLB</span>
+              <span class="tag">Analytics</span>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+          <!-- 02 Click Tracker -->
+          <a
+            class="project"
+            href="https://github.com/D4nGuerrero/click-tracker"
+            target="_blank"
+          >
+            <span class="project-num">02</span>
+            <div class="project-info">
+              <div class="project-title">Click Tracker</div>
+              <div class="project-desc">
+                Lightweight tool that counts and tracks mouse &amp; keyboard
+                clicks.
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Tracking</span>
+              <span class="tag">Utility</span>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+          <!-- 03 Personal Vault -->
+          <a
+            class="project"
+            href="https://d4nguerrero.github.io/personal-vault"
+            target="_blank"
+          >
+            <span class="project-num">03</span>
+            <div class="project-info">
+              <div class="project-title">Personal Vault</div>
+              <div class="project-desc">
+                Simplified note-like taking app for personal productivity. Makes
+                use of Google drive as source of truth.
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Productivity</span>
+              <span class="tag">Web App</span>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+
+          <!-- 04 RS3 Timers v2 -->
+          <a
+            class="project"
+            href="https://d4nguerrero.github.io/rs3timersv2"
+            target="_blank"
+          >
+            <span class="project-num">04</span>
+            <div class="project-info">
+              <div class="project-title">RS3 Timers v2</div>
+              <div class="project-desc">Simple timers for RuneScape 3.</div>
+            </div>
+            <div class="project-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">Gaming</span>
+              <span class="tag">Timers</span>
+            </div>
+            <span class="project-arrow">↗</span>
+          </a>
+        </div>
+
+        <!-- MONOPOLY BANK - Private Featured Project -->
+        <div class="monopoly-bank">
+          <div class="monopoly-content">
+            <div class="monopoly-header">
+              <h3>Monopoly Bank</h3>
+              <div class="monopoly-tags">
+                <span class="tag">React Native</span>
+                <span class="tag">NFC</span>
+                <span class="tag">Mobile</span>
+              </div>
+            </div>
+
+            <p class="monopoly-desc">
+              A mobile companion app for the classic Monopoly board game.<br />
+              Track player balances in real time with a fun NFC card twist.
+            </p>
+
+            <!-- 4-image row -->
+            <div class="monopoly-screenshots">
+              <!-- Replace these with your actual screenshots -->
+              <img src="images/1.png" alt="Monopoly Bank app screenshot 1" />
+              <img src="images/2.png" alt="Monopoly Bank app screenshot 2" />
+              <img src="images/3.png" alt="Monopoly Bank app screenshot 3" />
+              <img src="images/4.png" alt="Monopoly Bank app screenshot 4" />
+            </div>
+
+            <!-- LIGHTBOX -->
+            <div class="lightbox" id="lightbox">
+              <button class="lightbox-close" id="lightboxClose">×</button>
+
+              <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+                ‹
+              </button>
+
+              <img class="lightbox-image" id="lightboxImage" src="" alt="" />
+
+              <button class="lightbox-nav lightbox-next" id="lightboxNext">
+                ›
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <span class="playstore-soon sparkle"
+          ><span class="gradient">✨ PlayStore Soon ✨</span></span
+        >
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-label">03 — Skills</div>
+        <h2 class="reveal">The Stack</h2>
+
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <div class="skill-group-name">Frontend</div>
+
+            <ul class="skill-list">
+              <li>HTML / CSS</li>
+              <li>JavaScript / TypeScript</li>
+              <li>React / Next.js</li>
+              <li>Tailwind CSS</li>
+              <li>Responsive UI Design</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">Backend</div>
+
+            <ul class="skill-list">
+              <li>Node.js / Express</li>
+              <li>REST APIs</li>
+              <li>MySQL / SQLite</li>
+              <li>Authentication</li>
+              <li>WebSockets</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-name">Tools & Technologies</div>
+
+            <ul class="skill-list">
+              <li>PHP</li>
+              <li>React Native</li>
+              <li>Git / GitHub</li>
+              <li>Docker</li>
+              <li>Bilingual (English / Spanish)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ── Fun / Free Time ── -->
+      <section id="interests">
+        <div class="section-label">04 — Outside The Code</div>
+
+        <h2 class="reveal">
+          My other<br />
+          <em
+            style="
+              font-family: var(--font-serif);
+              font-size: 0.85em;
+              font-style: italic;
+            "
+          >
+            obsessions.
+          </em>
+        </h2>
+
+        <div class="about-grid">
+          <div class="about-bio reveal">
+            <p>
+              When I'm not building websites or apps, I'm usually deep into
+              strategy games, logic puzzles, or baseball statistics.
+            </p>
+
+            <p>
+              I love games that reward problem solving and systems thinking —
+              especially games like <strong>Portal</strong>,
+              <strong>Human Resource Machine</strong>, and
+              <strong>7 Billion Humans</strong>. Anything that feels like
+              programming disguised as a game instantly hooks me.
+            </p>
+
+            <p>
+              I’m also a huge baseball ⚾ fan. I can disappear for hours looking
+              at MLB stats, player analytics, standings, and historical
+              comparisons.
+              <strong>Go Rangers!</strong> 😊
+            </p>
+
+            <p>
+              Outside of tech, I enjoy learning random things. Math also really
+              fascinates me, I'm no expert, but I just love how it powers a lot
+              of things around us. Binary in computers, probability in games and
+              baseball, trigonometry in game engines, animations, physics
+              simulations. I enjoy understanding the ideas underneath the things
+              we use every day.
+            </p>
+
+            <p>
+              A lot of my curiosity stems from understanding
+              <em>how things work underneath the surface.</em> From opening up
+              calculators as a kid to going through open-source code. 😅
+            </p>
+          </div>
+
+          <div class="about-stats reveal">
+            <div class="stat">
+              <div class="stat-number">162</div>
+              <div class="stat-label">Games in a season</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">404</div>
+              <div class="stat-label">Free time not found</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">∞</div>
+              <div class="stat-label">Rabbit holes explored</div>
+            </div>
+
+            <div class="stat">
+              <div class="stat-number">RNG</div>
+              <div class="stat-label">Still unfair somehow</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-label" style="justify-content: center">
+          05 — Contact
+        </div>
+
+        <h2 class="reveal">Let's build<br />something cool.</h2>
+
+        <p class="reveal">
+          Need a website, frontend work, custom tools, or just want to talk
+          about development and ideas? Feel free to reach out.
+        </p>
+
+        <div class="cta-popout">
+          <a class="cta-link" href="mailto:hello@dannyg.dev">
+            hello@dannyg.dev </a
+          ><img src="images/denny.png" />
+        </div>
+
+        <div class="social-row reveal">
+          <a href="https://github.com/D4nGuerrero" target="_blank">GitHub</a>
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="#">Resume</a>
+        </div>
+      </section>
+
+      <footer>
+        <span> <span class="copyright-symbol">©</span> 2026 DannyG.dev</span>
+        <span>Built with obsession.</span>
+      </footer>
+    </div>
+    <!-- #main -->
+
+    <script>
+      // ── Sync parallax max-scroll ──
+      function syncScroll() {
+        document.documentElement.style.setProperty(
+          "--parallax-max-scroll",
+          document.documentElement.scrollHeight - window.innerHeight + "px",
+        );
+      }
+      document.addEventListener("DOMContentLoaded", syncScroll);
+      window.addEventListener("resize", syncScroll);
+
+      // ── Reveal on scroll ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              // stagger siblings
+              const siblings =
+                e.target.parentElement.querySelectorAll(".reveal");
+              siblings.forEach((el, i) => {
+                setTimeout(() => el.classList.add("visible"), i * 90);
+              });
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
