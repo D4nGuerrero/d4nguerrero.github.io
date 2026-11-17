@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTA VI Countdown</title>
+<meta name="description" content="Countdown to Grand Theft Auto VI">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Inter',system-ui,sans-serif;color:#fff;overflow:hidden;
+    background:linear-gradient(160deg,#ff3cac 0%,#784ba0 35%,#2b86c5 70%,#0b1a3a 100%);
+    background-size:300% 300%;animation:sky 18s ease infinite;
+    display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  @keyframes sky{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  .sun{position:fixed;width:60vmin;height:60vmin;border-radius:50%;bottom:-25vmin;left:50%;transform:translateX(-50%);
+    background:linear-gradient(#ffd56b,#ff6b6b 60%,#c2185b);opacity:.55;filter:blur(2px);
+    -webkit-mask:repeating-linear-gradient(#000 0 14px,transparent 14px 20px);mask:repeating-linear-gradient(#000 0 14px,transparent 14px 20px)}
+  .palms{position:fixed;bottom:0;left:0;right:0;height:28vh;background:linear-gradient(transparent,#05070f 85%)}
+  main{position:relative;z-index:2;padding:2rem}
+  .logo{font-family:'Anton',sans-serif;font-size:clamp(4rem,16vw,11rem);line-height:.9;letter-spacing:.02em;
+    background:linear-gradient(180deg,#fff 0%,#ffe0f0 45%,#ff7ab6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:0 0 40px rgba(255,60,172,.35)}
+  .sub{text-transform:uppercase;letter-spacing:.35em;font-size:clamp(.7rem,2vw,1rem);opacity:.85;margin:.75rem 0 2.5rem}
+  .timer{display:flex;gap:clamp(.5rem,2.5vw,1.5rem);justify-content:center;flex-wrap:wrap}
+  .unit{background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:16px;
+    padding:1rem clamp(.75rem,3vw,1.75rem);min-width:clamp(70px,18vw,140px)}
+  .num{font-family:'Anton',sans-serif;font-size:clamp(2.5rem,9vw,5.5rem);line-height:1;font-variant-numeric:tabular-nums}
+  .lbl{font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;opacity:.7;margin-top:.4rem}
+  .when{margin-top:2rem;font-size:.95rem;opacity:.8}
+  .done .timer{display:none}
+  .live{display:none;font-family:'Anton',sans-serif;font-size:clamp(2.5rem,10vw,6rem);color:#ffe066;text-shadow:0 0 30px #ff3cac}
+  .done .live{display:block;animation:pulse 1.2s ease-in-out infinite}
+  @keyframes pulse{50%{transform:scale(1.06)}}
+</style>
+</head>
+<body>
+<div class="sun"></div><div class="palms"></div>
+<main id="app">
+  <div class="logo">GTA VI</div>
+  <div class="sub">Grand Theft Auto VI &middot; Release Countdown</div>
+  <div class="timer">
+    <div class="unit"><div class="num" id="d">00</div><div class="lbl">Days</div></div>
+    <div class="unit"><div class="num" id="h">00</div><div class="lbl">Hours</div></div>
+    <div class="unit"><div class="num" id="m">00</div><div class="lbl">Minutes</div></div>
+    <div class="unit"><div class="num" id="s">00</div><div class="lbl">Seconds</div></div>
+  </div>
+  <div class="live">IT'S OUT. GO PLAY.</div>
+  <div class="when" id="when"></div>
+</main>
+<script>
+  // Wednesday, Nov 18, 2026, 5:00 AM Central (CST, UTC-6)
+  const target = new Date('2026-11-18T05:00:00-06:00');
+  const pad = n => String(n).padStart(2,'0');
+  document.getElementById('when').textContent = 'Unlocks ' + target.toLocaleString(undefined,{weekday:'long',month:'long',day:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'});
+  function tick(){
+    let diff = target - Date.now();
+    if(diff <= 0){document.getElementById('app').classList.add('done');document.title='GTA VI is OUT';return;}
+    const d=Math.floor(diff/864e5), h=Math.floor(diff/36e5)%24, m=Math.floor(diff/6e4)%60, s=Math.floor(diff/1e3)%60;
+    d_.textContent=pad(d);h_.textContent=pad(h);m_.textContent=pad(m);s_.textContent=pad(s);
+    document.title=`${d}d ${pad(h)}:${pad(m)}:${pad(s)} · GTA VI`;
+    requestAnimationFrame?setTimeout(tick,1000-(Date.now()%1000)):0;
+  }
+  const d_=document.getElementById('d'),h_=document.getElementById('h'),m_=document.getElementById('m'),s_=document.getElementById('s');
+  tick();
+</script>
+</body>
+</html>
